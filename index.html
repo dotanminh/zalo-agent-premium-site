@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zalo Agent: trợ lý AI trên Zalo của riêng bạn</title>
+<meta name="description" content="Gói Zalo Agent cài trên Windows: trợ lý AI trả lời chat riêng và nhóm Zalo, đọc ảnh và file, tìm web, soạn tài liệu, vẽ ảnh, kèm video hướng dẫn từng bước.">
+<link href="fonts/fonts.css" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --bg2:#F6F7FB; --ink:#1A1A2E; --soft:#4A4A5A; --line:#DADCE6;
+  --acc:#3F4E8C; --acc2:#D05252; --pur:#6B4FBB; --hl:#F9D84A; --card:#FFFFFF;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#14141B; --bg2:#1C1C26; --ink:#F2F2F7; --soft:#C4C4D0; --line:#33344A; --card:#1C1C26; --acc:#8FA0E8; --pur:#A794E8; --acc2:#F07C7C;
+}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px}
+a{color:var(--acc)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+header.top b{font-size:17px}
+header.top nav{display:flex;gap:18px;font-size:14px}
+header.top nav a{color:var(--soft);text-decoration:none}
+.btn{display:inline-block;background:var(--acc2);color:#fff;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:6px;font-size:15px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.hl{background:var(--hl);color:#1A1A2E;padding:1px 8px;font-weight:700}
+.hero{padding:64px 0 48px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.25;margin-bottom:16px}
+.hero p.lead{font-size:18px;color:var(--soft);max-width:680px;margin:0 auto 28px}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero small{display:block;margin-top:14px;color:var(--soft);font-size:13px}
+section{padding:56px 0}
+section.alt{background:var(--bg2)}
+h2{font-size:clamp(22px,3.2vw,30px);margin-bottom:8px}
+.sub{color:var(--soft);margin-bottom:28px;max-width:700px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p,.card li{color:var(--soft);font-size:15px}
+.card ul{padding-left:18px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step .n{flex:0 0 36px;height:36px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:4px;background:var(--pur);color:#fff;margin-bottom:8px}
+.tag.g{background:#3F8A55}
+.price{display:flex;flex-direction:column}
+.price .p{font-size:22px;font-weight:700;margin:6px 0 10px}
+.price ul{margin-bottom:18px;flex:1}
+.price.best{border:2px solid var(--acc2)}
+.ph{background:var(--hl);color:#1A1A2E;padding:0 6px;border-radius:3px;font-weight:700}
+.vid{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.vid span.t{color:var(--soft);font-size:13px;white-space:nowrap}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--soft);margin-top:8px;font-size:15px}
+.warn{border-left:4px solid var(--acc2);background:var(--card);padding:16px 18px;border-radius:0 8px 8px 0}
+.warn li{margin-left:18px;color:var(--soft);font-size:15px;margin-bottom:4px}
+.diagram img{width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--soft);font-size:13px;text-align:center}
+@media(max-width:640px){header.top nav{display:none}.hero{padding:40px 0 32px}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <b>Zalo Agent</b>
+  <nav><a href="#lam-duoc">Làm được gì</a><a href="#cai-dat">Cài đặt</a><a href="#video">Video</a><a href="#gia">Gói</a><a href="#hoi-dap">Hỏi đáp</a></nav>
+</div></header>
+
+<main>
+<div class="wrap hero">
+  <h1>Trợ lý AI chạy trên <span class="hl">Zalo của riêng bạn</span></h1>
+  <p class="lead">Trả lời chat riêng và nhóm, đọc ảnh và file, tìm web, soạn Word Excel PDF, vẽ ảnh, đọc giọng. Cài trên máy Windows của bạn, có video hướng dẫn từng bước.</p>
+  <div class="cta"><a class="btn" href="#gia">Xem các gói</a><a class="btn ghost" href="#video">Xem video hướng dẫn</a></div>
+  <small>Dữ liệu và khóa API nằm trên máy của bạn, không qua máy chủ trung gian của chúng tôi.</small>
+</div>
+
+<section class="alt" id="lam-duoc"><div class="wrap">
+  <h2>Làm được gì</h2>
+  <p class="sub">Một trợ lý, nhiều việc. Bạn bật hoặc tắt từng công cụ cho từng agent và từng người.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Trò chuyện thông minh</h3><p>Chat riêng và nhóm cộng đồng, nhớ từng người, chỉ trả lời khi được tag nếu bạn muốn.</p></div>
+    <div class="card"><h3>Hiểu mọi loại tin nhắn</h3><p>Đọc ảnh, nghe tin thoại, đọc file PDF, Word, Excel, PowerPoint và video YouTube.</p></div>
+    <div class="card"><h3>Tìm web và nghiên cứu</h3><p>Tìm kiếm, đọc trang, nghiên cứu sâu khi bạn cần câu trả lời kỹ.</p></div>
+    <div class="card"><h3>Soạn tài liệu</h3><p>Word, Excel, PDF, PowerPoint, văn bản hành chính chuẩn Nghị định 30, gửi thẳng vào chat.</p></div>
+    <div class="card"><h3>Ảnh, giọng, nhạc</h3><p>Vẽ và sửa ảnh, đọc giọng tiếng Việt, tạo nhạc, tải video và MP3 từ link.</p></div>
+    <div class="card"><h3>Kho tri thức của bạn</h3><p>Nạp bảng giá, quy trình, tài liệu riêng để bot trả lời đúng theo tài liệu và ghi rõ nguồn.</p></div>
+    <div class="card"><h3>Phân quyền chi tiết</h3><p>Mỗi người, mỗi nhóm một mức quyền: tool được dùng, mức riêng tư, model riêng.</p></div>
+    <div class="card"><h3>Lịch hẹn và nhắc việc</h3><p>Đặt lịch bot tự nhắn đúng giờ, báo bạn khi có khách nhắn gấp.</p></div>
+    <div class="card"><h3>Nối công cụ ngoài</h3><p>Nối MCP, Notion, cào dữ liệu để mở rộng khả năng khi cần.</p></div>
+  </div>
+  <p class="sub" style="margin-top:24px">Cần xem toàn bộ luồng hoạt động? <a href="so-do.svg" target="_blank" rel="noopener">Mở sơ đồ trọn gói</a>.</p>
+</div></section>
+
+<section id="cai-dat"><div class="wrap">
+  <h2>Cài đặt sáu bước, khoảng 30 đến 45 phút</h2>
+  <p class="sub">Một lệnh cài đặt tự động, mỗi bước đều có video đi kèm. Không rành máy tính thì đưa file hướng dẫn cho trợ lý AI cài giúp.</p>
+  <div class="grid g2">
+    <div class="card step"><div class="n">1</div><div><h3>Giải nén</h3><p>Giải nén gói vào thư mục không dấu.</p></div></div>
+    <div class="card step"><div class="n">2</div><div><h3>Chạy cài đặt</h3><p>Một lệnh PowerShell cài mọi thứ và tạo mật khẩu.</p></div></div>
+    <div class="card step"><div class="n">3</div><div><h3>Cài 9Router</h3><p>Bộ định tuyến nối nhiều nhà cung cấp model.</p></div></div>
+    <div class="card step"><div class="n">4</div><div><h3>Nối model AI</h3><p>Dán khóa API, chọn model, bấm thử.</p></div></div>
+    <div class="card step"><div class="n">5</div><div><h3>Nối nick Zalo phụ</h3><p>Quét mã QR hoặc dùng Bot API chính thức.</p></div></div>
+    <div class="card step"><div class="n">6</div><div><h3>Tạo agent đầu tiên</h3><p>Đặt tính cách, bật công cụ, nhắn thử.</p></div></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2>Windows là chính, VPS để mở rộng</h2>
+  <p class="sub">Phần lớn tính năng chạy ngay trên máy Windows. Chỉ các tính năng dưới đây mới cần một máy chủ Linux.</p>
+  <div class="grid g2">
+    <div class="card"><span class="tag g">Chạy trên Windows</span><h3>Gói chính</h3><ul><li>Chat riêng và nhóm, trí nhớ, phân quyền</li><li>Đọc ảnh, giọng, file, YouTube</li><li>Tìm web, soạn tài liệu, vẽ ảnh, giọng, nhạc</li><li>Kho tri thức, MCP, Notion, lịch hẹn</li></ul></div>
+    <div class="card"><span class="tag">Cần VPS Linux</span><h3>Phần mở rộng</h3><ul><li>Video người que, chibi, VOX, phim tài liệu</li><li>PowerPoint thiết kế đẹp</li><li>Giọng VieNeu chạy tại chỗ</li></ul><p style="margin-top:8px">Chưa cần thì không phải thuê VPS. Có video hướng dẫn riêng và gói cài hộ.</p></div>
+  </div>
+</div></section>
+
+<section id="video"><div class="wrap">
+  <h2>Video hướng dẫn</h2>
+  <p class="sub">Xem theo thứ tự. Video 0 đến 7 là đủ để chạy được trợ lý đầu tiên.</p>
+  <div class="card">
+    <div class="vid"><span>0. Giới thiệu và sơ đồ toàn cảnh</span><span class="t"><a href="#" data-video="0">Xem</a> · 3 phút</span></div>
+    <div class="vid"><span>1. Giải nén và chạy cài đặt tự động</span><span class="t"><a href="#" data-video="1">Xem</a> · 6 phút</span></div>
+    <div class="vid"><span>2. Cài và mở 9Router, tạo khóa API</span><span class="t"><a href="#" data-video="2">Xem</a> · 5 phút</span></div>
+    <div class="vid"><span>3. OpenRouter: nạp tiền, tạo khóa</span><span class="t"><a href="#" data-video="3">Xem</a> · 7 phút</span></div>
+    <div class="vid"><span>4. Tài khoản Google qua 9Router (kèm cảnh báo rủi ro)</span><span class="t"><a href="#" data-video="4">Xem</a> · 8 phút</span></div>
+    <div class="vid"><span>5. Dán khóa 9Router vào Zalo Agent</span><span class="t"><a href="#" data-video="5">Xem</a> · 5 phút</span></div>
+    <div class="vid"><span>6. Nối nick Zalo phụ</span><span class="t"><a href="#" data-video="6">Xem</a> · 6 phút</span></div>
+    <div class="vid"><span>7. Tạo agent đầu tiên và nhắn thử</span><span class="t"><a href="#" data-video="7">Xem</a> · 8 phút</span></div>
+    <div class="vid"><span>8. Google AI Studio: giọng đọc và nhạc</span><span class="t"><a href="#" data-video="8">Xem</a> · 6 phút</span></div>
+    <div class="vid"><span>9. Tavily, Exa, Linkup: tìm kiếm sâu</span><span class="t"><a href="#" data-video="9">Xem</a> · 5 phút</span></div>
+    <div class="vid"><span>10. Cào dữ liệu bằng Apify qua MCP</span><span class="t"><a href="#" data-video="10">Xem</a> · 6 phút</span></div>
+    <div class="vid"><span>11. Vẽ ảnh bằng ChatGPT và Gemini</span><span class="t"><a href="#" data-video="11">Xem</a> · 6 phút</span></div>
+    <div class="vid"><span>12. Grok: tạo clip video ngắn</span><span class="t"><a href="#" data-video="12">Xem</a> · 4 phút</span></div>
+    <div class="vid"><span>13. Kho tri thức và phân quyền</span><span class="t"><a href="#" data-video="13">Xem</a> · 8 phút</span></div>
+    <div class="vid"><span>14. Phần mở rộng trên VPS</span><span class="t"><a href="#" data-video="14">Xem</a> · 12 phút</span></div>
+    <div class="vid" style="border-bottom:0"><span>15. Vận hành, sao lưu, xử lý sự cố</span><span class="t"><a href="#" data-video="15">Xem</a> · 8 phút</span></div>
+  </div>
+</div></section>
+
+<section class="alt" id="gia"><div class="wrap">
+  <h2>Các gói</h2>
+  <p class="sub">Chi phí model AI (OpenRouter, Google, xAI...) do nhà cung cấp tính riêng theo mức bạn dùng.</p>
+  <div class="grid g3">
+    <div class="card price"><h3>Trọn gói tự cài</h3><div class="p">Liên hệ báo giá</div>
+      <ul><li>Gói cài đặt Windows và cập nhật</li><li>Toàn bộ video hướng dẫn</li><li>Sơ đồ, tài liệu, file hướng dẫn cho trợ lý AI</li></ul>
+      <a class="btn" href="#lien-he">Đăng ký</a></div>
+    <div class="card price best"><h3>Cài hộ</h3><div class="p">Liên hệ báo giá</div>
+      <ul><li>Mọi thứ của gói tự cài</li><li>Chúng tôi cài và cấu hình giúp bạn</li><li>Hướng dẫn nhanh cách dùng sau khi cài</li></ul>
+      <a class="btn" href="#lien-he">Đăng ký</a></div>
+    <div class="card price"><h3>Cài hộ kèm VPS</h3><div class="p">Liên hệ báo giá</div>
+      <ul><li>Mọi thứ của gói cài hộ</li><li>Cài phần mở rộng video và PowerPoint</li><li>Chi phí thuê VPS tính riêng</li></ul>
+      <a class="btn" href="#lien-he">Đăng ký</a></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Đọc kỹ trước khi dùng</h2>
+  <div class="warn"><ul>
+    <li><b>Chỉ dùng nick Zalo phụ.</b> Thư viện đăng nhập Zalo là không chính thức, tài khoản có thể bị Zalo khóa. Kênh Zalo Bot API chính thức an toàn hơn nhưng ít tính năng hơn.</li>
+    <li><b>Mỗi nick chỉ chạy ở một nơi.</b> Chạy cùng một nick ở hai nơi sẽ đá nhau liên tục.</li>
+    <li><b>Tài khoản Google chia sẻ (Family, Antigravity)</b> có thể vi phạm điều khoản của nhà cung cấp và bị khóa. Đây là lựa chọn không bắt buộc, bạn tự chịu rủi ro. Có thể dùng OpenRouter thay thế.</li>
+    <li><b>Bot không có công cụ chuyển tiền hay thanh toán</b> và không nên được nối vào. Hãy sao lưu file cấu hình và dữ liệu thường xuyên.</li>
+  </ul></div>
+</div></section>
+
+<section class="alt" id="hoi-dap"><div class="wrap">
+  <h2>Hỏi đáp</h2>
+  <details><summary>Tôi không rành máy tính có dùng được không?</summary><p>Được. Cài đặt chỉ cần một lệnh, mỗi bước có video. Bạn cũng có thể đưa file hướng dẫn cho Claude, Codex hoặc Antigravity để trợ lý tự cài giúp, hoặc chọn gói cài hộ.</p></details>
+  <details><summary>Dữ liệu của tôi nằm ở đâu?</summary><p>Trên máy bạn: lịch sử chat, trí nhớ và khóa API được lưu cục bộ, khóa được mã hóa. Bạn chỉ gửi nội dung tới nhà cung cấp model mà bạn tự chọn để trả lời.</p></details>
+  <details><summary>Có cần thuê máy chủ không?</summary><p>Không bắt buộc. Gói chính chạy ngay trên Windows. Chỉ video và PowerPoint thiết kế đẹp mới cần VPS Linux.</p></details>
+  <details><summary>Chi phí hằng tháng gồm những gì?</summary><p>Phí model AI theo mức dùng (tùy nhà cung cấp bạn chọn) và phí VPS nếu bạn dùng phần mở rộng. Nhiều công cụ phụ có gói miễn phí để thử.</p></details>
+  <details><summary>Một nick Zalo bị khóa thì sao?</summary><p>Có hướng dẫn chuyển sang nick mới mà không mất trí nhớ hội thoại. Vì vậy chỉ nên dùng nick phụ.</p></details>
+  <details><summary>Có được cập nhật phiên bản mới không?</summary><p>Có. Làm theo hướng dẫn cập nhật đi kèm, dữ liệu của bạn được giữ nguyên.</p></details>
+</div></section>
+
+<section id="lien-he"><div class="wrap" style="text-align:center">
+  <h2>Liên hệ</h2>
+  <p class="sub" style="margin:0 auto 20px">Nhắn cho chúng tôi để đăng ký hoặc hỏi thêm.</p>
+  <p><b>Zalo: 0918188448</b><br><a href="https://facebook.com/dotanminh" target="_blank" rel="noopener">facebook.com/dotanminh</a></p>
+</div></section>
+</main>
+
+<footer><div class="wrap">Zalo Agent. Sản phẩm không liên kết với Zalo, Google, OpenAI hay xAI. Tên thương hiệu thuộc về chủ sở hữu tương ứng.</div></footer>
+
+<script>
+// Gắn liên kết video YouTube (dạng https://youtu.be/...): điền địa chỉ vào đối tượng bên dưới, mục nào để trống sẽ hiện "Sắp có".
+var VIDEO = {0:"",1:"",2:"",3:"",4:"",5:"",6:"",7:"",8:"",9:"",10:"",11:"",12:"",13:"",14:"",15:""};
+document.querySelectorAll('a[data-video]').forEach(function(a){
+  var u = VIDEO[a.getAttribute('data-video')];
+  if (u) { a.href = u; a.target = "_blank"; a.rel = "noopener"; }
+  else { a.textContent = "Sắp có"; a.removeAttribute('href'); a.style.color = 'inherit'; a.style.opacity = '.6'; }
+});
+</script>
+</body>
+</html>
